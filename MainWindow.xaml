@@ -1,0 +1,73 @@
+﻿<Window x:Class="VAEcho.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VAEcho"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="250"
+        AllowsTransparency="True" WindowStyle="None"  Background="Transparent" Icon="img/echo.png">
+
+    <Window.Template>
+        <ControlTemplate TargetType="Window">
+            <Border Name="newBorder" CornerRadius="500" Background="#FF2C2C2C">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <!--Основное содержание-->
+                    <Border Grid.Row="1">
+                        <AdornerDecorator>
+                            <ContentPresenter />
+                        </AdornerDecorator>
+                    </Border>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </Window.Template>
+
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border Width="auto" Height="auto" Background="#FF2C2C2C" BorderBrush="#FFFFD101" BorderThickness="4"
+            CornerRadius="500">
+            <Grid MouseDown="ToolbarMouseDown">
+                <Button Content="" HorizontalAlignment="Left" Margin="150,25,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="MinimizeClick" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="img/toolbar1_btn.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="" HorizontalAlignment="Left" Margin="187,66,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="ExitClick" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="img/toolbar2_btn.png"/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Помощь" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Height="47" Width="102" Background="#FFFFD101" BorderBrush="#FFFFD101" FontFamily="Sitka Text" FontSize="18" FontWeight="Bold" FontStyle="Normal" Click="SupportClick" Cursor="Hand"/>
+                <Image HorizontalAlignment="Left" Height="102" Margin="27,68,0,0" VerticalAlignment="Top" Width="158" Source="/img/echo.png"/>
+                <Button Content="" HorizontalAlignment="Left" Margin="185,124,0,0" VerticalAlignment="Top" Height="40" Width="40" Click="SettingsClick" Cursor="Hand">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/settings_btn1.png"/>
+                    </Button.Background>
+                </Button>
+
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
